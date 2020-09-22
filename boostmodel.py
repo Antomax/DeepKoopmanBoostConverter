@@ -41,7 +41,7 @@ if __name__ == "__main__":
     Uc = X[:,1]
     
     # Visualisation
-    plt.figure(figsize=(16,9))
+    plt.figure(figsize=(11,7))
     
     plt.subplot(3,1,1)
     plt.plot(t, u(t))
