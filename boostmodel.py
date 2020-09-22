@@ -31,10 +31,10 @@ def boost_model(X,t,u_f):
 
 
 if __name__ == "__main__":    
-    x0 = np.array([0, 50])          # Initial conditions
-    t = np.linspace(0, 0.4, 1001)   # Time span
+    x0 = np.array([0, 15])          # Initial conditions
+    t = np.linspace(0, 0.2, 1001)   # Time span
     
-    def u(t): return (t<0.2)*0.2 + 0.5  # Step input function
+    def u(t): return (t<0.1)*0.2 + 0.5  # Step input function
     
     X = spi.odeint(boost_model, x0, t, args=(u,))
     IL = X[:,0]
@@ -58,5 +58,7 @@ if __name__ == "__main__":
     plt.ylabel('Voltage Uc [V]')
     plt.xlabel('Time [s]')
     plt.grid()
+    
+    plt.savefig('StepResponce.png')
     
     
