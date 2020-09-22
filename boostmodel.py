@@ -59,6 +59,6 @@ if __name__ == "__main__":
     plt.xlabel('Time [s]')
     plt.grid()
     
-    plt.savefig('StepResponce.png')
+    plt.savefig('StepResponse.png')
     
     
