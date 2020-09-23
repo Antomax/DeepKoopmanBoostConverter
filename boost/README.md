@@ -1,6 +1,6 @@
-# Deep Koopman Boost Converter
-An NN-based approximation of Koopman subspace for DC-DC boost converter.
+# Boost Converter Model
 
-Here I experiment with a linearization of the DC-DC boost converter based on Koopman-operator theory to find an optimal control strategy for non-linear system.
+A DC-DC boost converter model is described here in form of ODEs. The high-frequency ripple and inductor resistance are neglected.
 
+A resulting open loop step responce looks like:
 ![](https://raw.githubusercontent.com/Antomax/DeepKoopmanBoostConverter/master/boost/StepResponse.png)
