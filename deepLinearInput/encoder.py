@@ -4,9 +4,9 @@ Deep NN for Koopman subspace approximation
 
 """
 from scipy import io
+import numpy as np
 import torch
 from torch import nn
-import prepdata
 
 
 
@@ -95,7 +95,7 @@ class AutoEncoder(nn.Module):
         W["L"]  = self.L
         W["dt"]  = self.dt
         
-        io.savemat(name, W)
+        io.savemat('nets/'+name, W)
             
         
     def encode(self, x):
@@ -132,10 +132,9 @@ class AutoEncoder(nn.Module):
         return self.C(x)
     
     def propagate(self, code, U):
-        # self.K.weight.copy_(torch.triu(self.K.weight))
-        codes = [self.K(code) + self.B(self.input_transform(U[:,0:1]))] 
+        codes = [self.K(code) + self.B(U[:,0:1])] 
         for i in range(self.N-2):
-            codes.append(self.K(codes[-1]) + self.B(self.input_transform(U[:,i+1:i+2])))
+            codes.append(self.K(codes[-1]) + self.B(U[:,i+1:i+2]))
         return codes
         
     
