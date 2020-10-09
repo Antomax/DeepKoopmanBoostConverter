@@ -35,6 +35,7 @@ class AutoEncoder(nn.Module):
                 nn.Linear(self.hid_dim*3//5, self.hid_dim*3//4),
                 nn.ReLU(),
                 nn.Linear(self.hid_dim*3//4, self.in_dim))
+
         
         self.K = nn.Linear(self.hid_dim, self.hid_dim, bias=False)
         self.B = nn.Linear(1, self.hid_dim, bias=False)
